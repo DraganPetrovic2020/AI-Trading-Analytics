@@ -13,13 +13,16 @@ A professional, high-performance cryptocurrency trading dashboard and machine le
 
 </div>
 
+![Upwork Logo](https://github.com/sicte/AI-Trading-Analytics/assets/img/main.png)
+
 ---
 
 ## 🎬 Platform Demonstration & UI Preview
 
-> *Experience lightning-fast multi-timeframe candlestick charting, real-time AI signal predictions, and automated risk management.*
+> _Experience lightning-fast multi-timeframe candlestick charting, real-time AI signal predictions, and automated risk management._
 
 ### 📊 Interactive Charting & Technical Analysis
+
 ```
 +-----------------------------------------------------------------------+
 |  SOL/USDT  |  $101.96  +0.75% / 24h  |  AI Signal: BUY (84% Conf)  [SIM]  |
@@ -39,7 +42,8 @@ A professional, high-performance cryptocurrency trading dashboard and machine le
 +-----------------------------------------------------------------------+
 ```
 
-*Interactive preview GIF / Demo screenshot placeholders:*
+_Interactive preview GIF / Demo screenshot placeholders:_
+
 - **Dashboard Overview**: `![Dashboard Preview](docs/demo.gif)`
 - **Trading Chart & Tooltips**: `![Trading Chart](docs/chart.png)`
 
@@ -102,6 +106,7 @@ AI-Trading-Analytics/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - **Python 3.10+**
 - **Node.js 18+** & `npm`
 
@@ -142,6 +147,7 @@ To connect your Binance account for **LIVE** spot trading, use the Live Connect 
 ```
 
 > **Security Best Practices**:
+>
 > - Never commit API keys or secret files to version control.
 > - Enable **Spot Trading** permissions only; never enable withdrawals.
 > - Use Binance **Testnet** (`testnet: true`) for initial strategy testing.

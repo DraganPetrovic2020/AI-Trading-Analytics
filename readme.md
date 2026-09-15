@@ -13,7 +13,7 @@ A professional, high-performance cryptocurrency trading dashboard and machine le
 
 </div>
 
-![Upwork Logo](https://github.com/sicte/AI-Trading-Analytics/assets/img/main.png)
+![Main UI](https://github.com/sicte/AI-Trading-Analytics/blob/main/assets/img/main.png)
 
 ---
 

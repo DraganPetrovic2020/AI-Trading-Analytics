@@ -1,116 +1,35 @@
-# 🚀 SOL/USDT AI Trading & Analytics Platform
+# SOL/USDT AI Trading Dashboard
 
-<div align="center">
+A web dashboard for trading **SOL/USDT** on Binance. It shows a live price chart, gives AI buy/sell signals, and lets you practice trading with fake money or trade for real.
 
-![Python Version](https://img.shields.io/badge/python-3.10%2B-blue.svg)
-![TypeScript](https://img.shields.io/badge/typescript-5.5%2B-blue.svg)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg)
-![React](https://img.shields.io/badge/React-18.3-61DAFB.svg)
-![LightGBM](https://img.shields.io/badge/LightGBM-4.0%2B-orange.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Main UI](assets/img/main.png)
 
-A professional, high-performance cryptocurrency trading dashboard and machine learning signal engine built for **SOL/USDT** spot trading on Binance, featuring an interactive HTML5 Canvas charting interface and a robust Python FastAPI backend.
+## What it does
 
-</div>
+- **Live chart**: candlesticks with 1m, 5m, 15m, 1h, 4h and 1d timeframes. Drag to scroll, drag the price axis to stretch, double-click to reset.
+- **Indicators**: moving averages, RSI, MACD and Bollinger Bands.
+- **Support and resistance**: finds the price levels that held most often and draws them on the chart.
+- **AI signals**: a machine learning model (LightGBM) predicts whether the next candle is likely to go up or down. If the model isn't ready, a simpler rule-based signal is used.
+- **Two trading modes**:
+  - **SIM**: practice with fake money. No risk.
+  - **LIVE**: real orders on your Binance account (or the Binance Testnet).
 
----
+## How it works
 
-## 🎬 Platform Demonstration & UI Preview
+The app has two parts, and both must be running:
 
-> _Experience lightning-fast multi-timeframe candlestick charting, real-time AI signal predictions, and automated risk management._
+| Part     | Tech                   | Address                   |
+| -------- | ---------------------- | ------------------------- |
+| Frontend | React + Vite           | http://127.0.0.1:5173     |
+| Backend  | Python + FastAPI       | http://localhost:8001/api |
 
-### 📊 Interactive Charting & Technical Analysis
+The frontend (what you see in the browser) gets all its data from the backend.
 
-```
-+-----------------------------------------------------------------------+
-|  SOL/USDT  |  $101.96  +0.75% / 24h  |  AI Signal: BUY (84% Conf)  [SIM]  |
-+-----------------------------------------------------------------------+
-| Interval: [ 1m ] [ 5m ] [ 15m ] [ 1h ] [ 4h ] [ 1d ]                    |
-+-----------------------------------------------------------------------+
-|                                                                       |
-|   Candlestick Chart with TradingView-Style Mouse Scaling & Dragging   |
-|   - Drag chart body horizontally to pan through historical candles    |
-|   - Drag on the right Y-axis price scale to press/stretch candle height |
-|   - Double-click to reset view and zoom                               |
-|                                                                       |
-+-----------------------------------------------------------------------+
-| VOL | ████▄█▇▆▅▄▃▂  ▂▃▄▅▆▇█▇▆▅▄▃▂   VOL (24h)                         |
-+-----------------------------------------------------------------------+
-| MACD| ██████████▄▄▄▄      ▂▂▂▃▃▄▅▅██  MACD (12, 26, 9)                  |
-+-----------------------------------------------------------------------+
-```
+## Setup
 
-_Interactive preview GIF / Demo screenshot placeholders:_
+You need **Python 3.10+** and **Node.js 18+**.
 
-- **Dashboard Overview**: `![Dashboard Preview](docs/demo.gif)`
-- **Trading Chart & Tooltips**: `![Trading Chart](docs/chart.png)`
-
----
-
-## ✨ Key Features
-
-1. **⚡ High-Performance Candlestick Charting**
-   - Multi-timeframe interval switching (`1m`, `5m`, `15m`, `1h`, `4h`, `1d`) with instant background caching.
-   - TradingView-style interactions: Time panning on chart body and vertical price scale scaling (press/stretch candle height) by dragging on the right Y-axis.
-   - English tooltips displaying Open, High, Low, Close, Volume, and Percentage Change.
-
-2. **📈 Advanced Technical Indicators**
-   - **Moving Averages**: Simple (SMA 5, 20) and Exponential (EMA 5, 20).
-   - **RSI**: Relative Strength Index with Wilder's smoothing.
-   - **MACD**: Moving Average Convergence Divergence histogram.
-   - **Bollinger Bands**: Dynamic upper, middle, and lower volatility bands.
-
-3. **🔍 Support & Resistance Level Detection**
-   - Automated pivot high and low algorithms.
-   - Clustering engine identifying major support and resistance zones with touch counts and distance percentage metrics.
-
-4. **🤖 AI Signal Engine & Machine Learning**
-   - **LightGBM Classifier**: Gradient-boosted decision trees trained on intraday features (RSI, MACD, Bollinger %B, trend, returns, volatility) to predict next-candle direction probability.
-   - **Rule-Based Fallback**: Robust multi-indicator scoring fallback guaranteeing signals under all market conditions.
-
-5. **💼 Dual Trading Modes (SIM & LIVE)**
-   - **Simulation Mode (SIM)**: Risk-free paper trading with real-time portfolio tracking, slippage, and fee calculation.
-   - **Live Trading Mode (LIVE)**: Direct REST API spot trading on Binance / Binance Testnet using HMAC-SHA256 request signing with Python standard libraries.
-
----
-
-## 📂 Project Directory Structure
-
-```text
-AI-Trading-Analytics/
-├── src/
-│   ├── backend/
-│   │   ├── account.py               # Paper account balance & portfolio management
-│   │   ├── ai_engine.py             # LightGBM machine learning & rule-based engine
-│   │   ├── binance_client.py        # Binance public & signed REST API client
-│   │   ├── indicators.py            # Technical indicators & S/R detection
-│   │   ├── server.py                # FastAPI backend REST API server
-│   │   ├── trade_store.py           # SQLite / Supabase trade history store
-│   │   └── sol_binance_ai_trading.py# Standalone Tkinter GUI trading script
-│   ├── components/
-│   │   └── TradingChart.tsx         # Interactive HTML5 Canvas candlestick chart
-│   ├── App.tsx                      # Main React dashboard interface
-│   ├── api.ts                       # Frontend API client
-│   └── types.ts                     # TypeScript data interfaces
-├── supabase/
-│   └── migrations/                  # Database schema migrations
-├── package.json                     # Frontend dependencies & npm scripts
-├── tailwind.config.js               # Tailwind CSS styling configuration
-└── readme.md                        # Project documentation
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Python 3.10+**
-- **Node.js 18+** & `npm`
-
-### 1. Backend Setup (FastAPI)
-
-Navigate to the backend directory, install Python dependencies, and start the server:
+### 1. Start the backend
 
 ```bash
 cd src/backend
@@ -118,40 +37,54 @@ pip install -r requirements.txt
 python -m uvicorn server:app --host 0.0.0.0 --port 8001 --reload
 ```
 
-### 2. Frontend Setup (React & Vite)
+Leave this terminal open.
 
-Open a new terminal in the project root directory, install npm packages, and launch the Vite dev server:
+### 2. Start the frontend
+
+Open a second terminal in the project folder:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open your browser at `http://localhost:5173` to access the trading platform.
+### 3. Open the app
 
----
+Go to **http://127.0.0.1:5173** in your browser.
 
-## ⚙️ Configuration & Live Trading
+## Live trading (optional)
 
-To connect your Binance account for **LIVE** spot trading, use the Live Connect modal in the UI or configure API credentials securely:
+The app starts in **SIM** mode. To trade for real, click **Connect** in the app and enter your Binance API key and secret.
 
-```json
-{
-  "api_key": "YOUR_BINANCE_API_KEY",
-  "api_secret": "YOUR_BINANCE_API_SECRET",
-  "testnet": false,
-  "max_order_usdt": 50.0
-}
+Stay safe:
+
+- Try the **Testnet** option first.
+- In Binance, turn on **Spot Trading** only. Never turn on withdrawals.
+- Set a **max order size** so one mistake can't cost much.
+- Never commit your API keys to git.
+
+## Troubleshooting
+
+- **Page is blank or "connection refused"**: make sure `npm run dev` is running, and use `127.0.0.1` instead of `localhost`.
+- **Page loads but shows no data**: the backend isn't running. Start it (step 1).
+
+## Project files
+
+```text
+src/
+├── App.tsx                  # Main dashboard page
+├── api.ts                   # Talks to the backend
+├── components/
+│   └── TradingChart.tsx     # The candlestick chart
+└── backend/
+    ├── server.py            # Backend API
+    ├── ai_engine.py         # AI signal model
+    ├── indicators.py        # RSI, MACD, support/resistance, etc.
+    ├── binance_client.py    # Connects to Binance
+    ├── account.py           # Fake-money account for SIM mode
+    └── trade_store.py       # Saves trade history
 ```
 
-> **Security Best Practices**:
->
-> - Never commit API keys or secret files to version control.
-> - Enable **Spot Trading** permissions only; never enable withdrawals.
-> - Use Binance **Testnet** (`testnet: true`) for initial strategy testing.
+## Disclaimer
 
----
-
-## 🛡️ License
-
-This project is licensed under the [MIT License](LICENSE). Provided for educational, analytical, and research purposes.
+This project is for learning and research. Crypto trading is risky, and the AI signals are not financial advice.

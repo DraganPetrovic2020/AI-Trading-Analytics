@@ -13,8 +13,6 @@ A professional, high-performance cryptocurrency trading dashboard and machine le
 
 </div>
 
-![Main UI](https://github.com/sicte/AI-Trading-Analytics/blob/main/assets/img/main.png)
-
 ---
 
 ## 🎬 Platform Demonstration & UI Preview
